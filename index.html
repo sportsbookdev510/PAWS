@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!--
+      No maximum-scale: a player may pinch the page to read it. It was switched off on every
+      screen (axe flags `meta-viewport` on all 56 of them; WCAG 2.2 AA 1.4.4), and Android honours
+      it where iOS ignores it, so real players were losing it. The world's own pinch is safe from
+      this: `.world canvas` is `touch-action: none`, so a finger on the board still pans the board
+      and only a pinch somewhere else - a panel, the strip - zooms the page.
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#432b19" />
+    <title>Paws of Sherwood</title>
+    <link rel="icon" href="/favicon.png" type="image/png" sizes="64x64" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <!-- Installable app (src/pwa). use-credentials: the manifest is fetched without the site
+         password otherwise, and the password-gated sites answer 401. -->
+    <link rel="manifest" href="/manifest.webmanifest" crossorigin="use-credentials" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Paws" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Grenze+Gotisch:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- The splash's own look, before any of the app's styles have arrived. -->
+    <style>html,body{background:#0f0a06;margin:0}.boot-splash{min-height:100vh;text-align:center;place-content:center;justify-items:center;gap:12px;min-height:100dvh;display:grid}.boot-splash img{border-radius:16px}.boot-splash__name{color:#e7c873;font:600 28px/1.1 Grenze Gotisch,Georgia,serif}.boot-splash__line{color:#b39c74;letter-spacing:.12em;text-transform:uppercase;font:600 12px/1.2 Barlow,system-ui,sans-serif}</style>
+    <script type="module" crossorigin src="/assets/main-DtUT6G8v.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/rolldown-runtime-C_s2cVnS.js">
+    <link rel="modulepreload" crossorigin href="/assets/react-Cn3k3YTV.js">
+    <link rel="modulepreload" crossorigin href="/assets/schemas-CdEveidJ.js">
+    <link rel="modulepreload" crossorigin href="/assets/src-BKbOlEyd.js">
+    <link rel="modulepreload" crossorigin href="/assets/LoadFailed-BiG_V__c.js">
+    <link rel="modulepreload" crossorigin href="/assets/media-C9OmArnU.js">
+    <link rel="modulepreload" crossorigin href="/assets/three-8LjgJeTV.js">
+    <link rel="modulepreload" crossorigin href="/assets/Renderer-BzRGE7NV.js">
+    <link rel="modulepreload" crossorigin href="/assets/rarityFx-B1951cHx.js">
+    <link rel="modulepreload" crossorigin href="/assets/TerrainLayer-CurUpNyY.js">
+    <link rel="modulepreload" crossorigin href="/assets/viem-CnFKpqyY.js">
+    <link rel="stylesheet" crossorigin href="/assets/main-D28YBd3l.css">
+  </head>
+  <body>
+    <!--
+      What a slow connection shows while the scripts arrive. Nothing painted until every script had
+      run, which on slow 4G was fourteen seconds of blank page (F90); this paints as soon as the HTML
+      lands, and React replaces it the moment the game renders.
+    -->
+    <div id="root">
+      <div class="boot-splash" role="status">
+        <img src="/apple-touch-icon.png" alt="" width="96" height="96" />
+        <div class="boot-splash__name">Paws of Sherwood</div>
+        <div class="boot-splash__line">Loading…</div>
+      </div>
+    </div>
+  </body>
+</html>
